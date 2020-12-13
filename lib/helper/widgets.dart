@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_api/views/article_view.dart';
 
-Widget MyAppBar(){
+Widget MyAppBar(context,GlobalKey<ScaffoldState> _scaffoldKey){
   return AppBar(
+    leading: IconButton(
+      icon: Icon(Icons.menu),
+      onPressed: (){
+        _scaffoldKey.currentState.openDrawer();
+      },
+      color: Theme.of(context).primaryColor,
+    ),
     title: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          "Flutter",
+          "Waqas",
           style:
           TextStyle(color: Colors.black87, fontWeight: FontWeight.w600),
         ),
         Text(
           "News",
-          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w600),
+          style: TextStyle(color: Theme.of(context).primaryColor, fontWeight: FontWeight.w600),
         )
       ],
     ),

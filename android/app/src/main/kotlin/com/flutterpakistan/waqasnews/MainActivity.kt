@@ -1,4 +1,4 @@
-package com.example.news_app_api
+package com.flutterpakistan.waqasnews
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

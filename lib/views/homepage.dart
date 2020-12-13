@@ -4,6 +4,9 @@ import 'package:news_app_api/helper/data.dart';
 import 'package:news_app_api/helper/widgets.dart';
 import 'package:news_app_api/models/categorie_model.dart';
 import 'package:news_app_api/views/categorie_news.dart';
+import 'package:news_app_api/views/contact_us.dart';
+import 'package:news_app_api/views/privacy_policy.dart';
+import 'package:news_app_api/views/terms_conditions.dart';
 import '../helper/news.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,11 +39,75 @@ class _HomePageState extends State<HomePage> {
     categories = getCategories();
     getNews();
   }
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(),
+      key: _scaffoldKey,
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(left: 30,right: 30,top: 50),
+            height: MediaQuery.of(context).size.height/5,
+            child: Text("WaqasNews",
+            style: TextStyle(
+              fontSize: 30,
+              color: Theme.of(context).primaryColor
+            ),),
+          ),
+            Divider(
+              thickness: 1,
+              color: Theme.of(context).primaryColor,
+            ),
+            ListTile(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              leading: Icon(Icons.home,
+                color: Theme.of(context).primaryColor,),
+              title: Text("Home"),
+            ),
+            // ListTile(
+            //   leading: Icon(Icons.dashboard_customize,
+            //     color: Colors.blue,),
+            //   title: Text("Custom Ads"),
+            // ),
+            ListTile(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context)=>PrivacyPolicy()
+                ));
+              },
+              leading: Icon(Icons.policy,
+              color: Theme.of(context).primaryColor,),
+              title: Text("Privacy Policy"),
+            ),
+            ListTile(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context)=>TermsConditions()
+                ));
+              },
+              leading: Icon(Icons.info,
+                color: Theme.of(context).primaryColor,),
+              title: Text("Terms & Conditions"),
+            ),
+            ListTile(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context)=>ContactUs()
+                ));
+              },
+              leading: Icon(Icons.contact_page,
+                color: Theme.of(context).primaryColor,),
+              title: Text("Contact Us"),
+            ),
+          ],
+        ),
+      ),
+      appBar: MyAppBar(context,_scaffoldKey),
       body: SafeArea(
         child: _loading
             ? Center(
@@ -64,6 +131,7 @@ class _HomePageState extends State<HomePage> {
                               );
                             }),
                       ),
+
 
                       /// News Article
                       Container(

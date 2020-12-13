@@ -23,20 +23,18 @@ class _ArticleViewState extends State<ArticleView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "Flutter",
+              "Waqas",
               style:
               TextStyle(color: Colors.black87, fontWeight: FontWeight.w600),
             ),
             Text(
               "News",
-              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w600),
+              style: TextStyle(color: Theme.of(context).primaryColor, fontWeight: FontWeight.w600),
             )
           ],
         ),
         actions: <Widget>[
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Icon(Icons.share,))
+
         ],
         backgroundColor: Colors.transparent,
         elevation: 0.0,

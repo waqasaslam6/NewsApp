@@ -8,12 +8,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'WaqasNews',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.white,
+        primaryColor: Colors.purple[300],
+        appBarTheme: AppBarTheme(
+          color: Colors.purple,
+          iconTheme: IconThemeData(
+            color: Colors.purple
+          )
+        )
       ),
       home: HomePage(),
+
     );
   }
 }
